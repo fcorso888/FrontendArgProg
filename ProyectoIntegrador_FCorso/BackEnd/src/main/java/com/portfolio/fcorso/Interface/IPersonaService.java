@@ -2,7 +2,9 @@ package com.portfolio.fcorso.Interface;
 
 import com.portfolio.fcorso.Entity.Persona;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface IPersonaService {
     //Para traer una lista de personas uso
     public List<Persona> getPersona();
