@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.portfolio.fcorso.Security.jwt;
 
 import com.portfolio.fcorso.Security.Service.UserDetailsImpl;
@@ -18,10 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-/**
- *
- * @author fabri
- */
+
 public class JwtTokenFilter extends OncePerRequestFilter {
 
     private final static Logger logger = LoggerFactory.getLogger(JwtTokenFilter.class);
