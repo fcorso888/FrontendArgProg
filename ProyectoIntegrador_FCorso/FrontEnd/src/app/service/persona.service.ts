@@ -11,8 +11,8 @@ export class PersonaService {
 
   constructor(private http: HttpClient) { }
   /** aca tengo la duda si es HttpClientModule o como lo deje, antes salia que el get estaba con problemas*/
-  
-  public getPersona(): Observable<persona>{
-    return this.http.get<persona>(this.URL + 'traer/perfil');  
+
+  public getPersona(): Observable<persona> {
+    return this.http.get<persona>(this.URL + 'traer/perfil');
   }
 }

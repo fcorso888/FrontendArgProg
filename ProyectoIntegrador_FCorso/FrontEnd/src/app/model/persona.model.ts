@@ -1,4 +1,4 @@
-export class persona{
+export class persona {
     id?: number;
     nombre: string;
     apellido: string;

@@ -33,8 +33,8 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    
-    
+
+
   ],
   imports: [
     BrowserModule,
