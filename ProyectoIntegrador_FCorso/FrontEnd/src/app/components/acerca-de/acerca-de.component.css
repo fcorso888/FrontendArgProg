@@ -2,7 +2,7 @@
     padding: 20px;
 }
 div{
-    background-color: #a1b5cb;
+    background: -webkit-linear-gradient(left, #61a4e2 0%, #2388CB 65%, #144E75 100%);
     text-align: center;
 }
 
@@ -13,7 +13,7 @@ div{
         position: absolute;
         width: 15%;
         border-radius: 20%;
-        box-shadow: 3px 3px 3px 3px grey;
+        box-shadow: 3px 3px 3px 3px #0044CC;
         left: 3%;
         top: 600px;
     }

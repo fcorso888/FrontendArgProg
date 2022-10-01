@@ -1,11 +1,12 @@
-.row{
+.row {
     padding: 20px;
 }
 
-div{
-    background-color: #a1b5cb;
+div {
+    background: -webkit-linear-gradient(left, #61a4e2 0%, #2388CB 65%, #144E75 100%);
 }
 
-h1, h3{
+h1,
+h3 {
     display: inline;
 }

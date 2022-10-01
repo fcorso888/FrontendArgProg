@@ -1,5 +1,5 @@
 .row{
-    background-color: #a1b5cb;
+    background: -webkit-linear-gradient(left, #61a4e2 0%, #2388CB 65%, #144E75 100%);
 }
 
 footer{
