@@ -35,7 +35,7 @@ import { NewExperienciaComponent } from './components/experiencia/new-experienci
     HomeComponent,
     LoginComponent,
     NewExperienciaComponent,
-
+    
 
   ],
   imports: [
