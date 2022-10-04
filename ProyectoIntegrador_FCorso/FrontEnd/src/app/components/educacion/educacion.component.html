@@ -1,27 +1,31 @@
 <div class="row">
     <h1>Educación</h1>
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dark" routerLink="/educacion" *ngIf="isLogged">
+            Nueva Educación
+        </button>
+    </div>
+
     <div class="col-lg-1"></div>
     <div class="col-lg-11">
-        <ul>
-            <li>
-                <h1>Técnico Superior en Tratamiento y Seguridad Penitenciaria</h1> - <h3>(years)</h3>
-            </li>
-            <p>Escuela de Formación Superior del Servicio Penitenciario de Córdoba.
-            </p>
-        </ul>
-        <ul>
-            <li>
-                <h1>Licenciado en Seguridad</h1> - <h3>(years)</h3>
-            </li>
-            <p>Universidad Nacional de Villa María.
-            </p>
-        </ul>
-        <ul>
-            <li>
-                <h1>Tecnicatura Superior Universitaria en Asistencia en Investigación Penal</h1> - <h3>(years)</h3>
-            </li>
-            <p>Facultad de Derecho de la Universidad Nacional de Córdoba.
-            </p>
-        </ul>
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let Educacion of edu">
+                    <td>
+                        <h2>{{Educacion.nombreE}}</h2>
+                    </td>
+                    <td>{{Educacion.descripcionE}}</td>
+                    <td *ngIf="isLogged">
+                        <button type="button" class="btn btn-light" routerLink="/educacion/{{Educacion.id}}"><i
+                                class="bi bi-pencil-fill"></i>EDITAR</button>
+                    </td>
+                    <td *ngIf="isLogged">
+                        <button type="button" class="btn btn-danger" (click)="delete(Educacion.id)"><i
+                                class="bi bi-trash3"></i>BORRAR</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+
 </div>
