@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgCircleProgressModule } from '@rushiraj111/ng-circle-progress';
+import { EditEducacionComponent } from './components/educacion/edit-educacion.component';
 import { NewEducacionComponent } from './components/educacion/new-educacion.component';
 import { EditExperienciaComponent } from './components/experiencia/edit-experiencia.component';
 import { NewExperienciaComponent } from './components/experiencia/new-experiencia.component';
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'nuevaexp', component: NewExperienciaComponent },
   { path: 'editexp/:id', component: EditExperienciaComponent },
-  { path: 'nuevaedu', component: NewEducacionComponent }
+  { path: 'nuevaedu', component: NewEducacionComponent },
+  { path: 'editedu/:id', component: EditEducacionComponent }
 ];
 
 @NgModule({
