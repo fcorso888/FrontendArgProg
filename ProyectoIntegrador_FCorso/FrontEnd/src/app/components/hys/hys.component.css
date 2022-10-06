@@ -2,3 +2,9 @@
     background: -webkit-linear-gradient(left, #61a4e2 0%, #2388CB 65%, #144E75 100%);
     padding: 20px;
 }
+
+.circulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
