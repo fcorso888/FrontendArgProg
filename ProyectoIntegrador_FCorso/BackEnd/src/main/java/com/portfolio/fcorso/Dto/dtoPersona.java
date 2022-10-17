@@ -6,10 +6,6 @@ package com.portfolio.fcorso.Dto;
 
 import javax.validation.constraints.NotBlank;
 
-/**
- *
- * @author fabri
- */
 public class dtoPersona {
     @NotBlank
     private String nombre;
