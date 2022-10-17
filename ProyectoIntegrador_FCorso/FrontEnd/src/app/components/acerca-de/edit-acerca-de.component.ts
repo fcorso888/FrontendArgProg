@@ -19,7 +19,7 @@ export class EditAcercaDeComponent implements OnInit {
     this.personaService.detail(id).subscribe(data => {
       this.persona = data;
     }, err => {
-      alert("Error al modificar datos sobre");
+      alert("Error al modificar datos");
       this.router.navigate(['']);
     })
   }
