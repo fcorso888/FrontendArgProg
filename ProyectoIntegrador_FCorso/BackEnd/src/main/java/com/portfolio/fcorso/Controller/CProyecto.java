@@ -4,10 +4,10 @@
  */
 package com.portfolio.fcorso.Controller;
 
-import com.portfolio.fcorso.Dto.dtoEducacion;
-import com.portfolio.fcorso.Entity.Educacion;
+import com.portfolio.fcorso.Dto.dtoProyecto;
+import com.portfolio.fcorso.Entity.Proyecto;
 import com.portfolio.fcorso.Security.Controller.Mensaje;
-import com.portfolio.fcorso.Service.SEducacion;
+import com.portfolio.fcorso.Service.SProyecto;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,65 +24,65 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/educacion/")
+@RequestMapping("/proyecto")
 @CrossOrigin(origins = "https://frontendfcorso.web.app")
-public class CEducacion {
+public class CProyecto {
     @Autowired
-    SEducacion sEducacion;
+    SProyecto sProyecto;
     
     @GetMapping("/lista")
-    public ResponseEntity<List<Educacion>> list(){
-        List<Educacion> list = sEducacion.list();
-        return new ResponseEntity (list, HttpStatus.OK);
+    public ResponseEntity<List<Proyecto>> list(){
+        List<Proyecto> list = sProyecto.list();
+        return new ResponseEntity(list, HttpStatus.OK);
     }
     
     @GetMapping("/detail/{id}")
-    public ResponseEntity<Educacion> getById(@PathVariable("id") int id){
-        if(!sEducacion.existsById(id))
+    public ResponseEntity<Proyecto> getById(@PathVariable("id") int id){
+        if(!sProyecto.existsById(id))
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
-        Educacion educacion = sEducacion.getOne(id).get();
-        return new ResponseEntity(educacion, HttpStatus.OK);
+        Proyecto proyecto = sProyecto.getOne(id).get();
+        return new ResponseEntity(proyecto, HttpStatus.OK);
     }
     
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
-        if (!sEducacion.existsById(id)) {
+        if (!sProyecto.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
         }
-        sEducacion.delete(id);
-        return new ResponseEntity(new Mensaje("Educación eliminada"), HttpStatus.OK);
+        sProyecto.delete(id);
+        return new ResponseEntity(new Mensaje("proyecto eliminado"), HttpStatus.OK);
     }
     
     @PostMapping("/create")
-    public ResponseEntity<?> create(@RequestBody dtoEducacion dtoedu){
-        if(StringUtils.isBlank(dtoedu.getNombreE()))
+    public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyecto){
+        if(StringUtils.isBlank(dtoproyecto.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if(sEducacion.existsByNombreE(dtoedu.getNombreE()))
-            return new ResponseEntity(new Mensaje("Esa Educacion ya existe"), HttpStatus.BAD_REQUEST);
+        if(sProyecto.existsByNombre(dtoproyecto.getNombre()))
+            return new ResponseEntity(new Mensaje("Ese proyecto existe"), HttpStatus.BAD_REQUEST);
         
-        Educacion educacion = new Educacion(dtoedu.getNombreE(), dtoedu.getDescripcionE());
-        sEducacion.save(educacion);
+        Proyecto proyecto = new Proyecto(dtoproyecto.getNombre(), dtoproyecto.getDescripcion());
+        sProyecto.save(proyecto);
         
-        return new ResponseEntity(new Mensaje("Educación agregada"), HttpStatus.OK);
+        return new ResponseEntity(new Mensaje("Proyecto agregado"), HttpStatus.OK);
     }
     
     @PutMapping("/update/{id}")
-    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoEducacion dtoedu){
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyecto dtoproyecto){
         //Validamos si existe el id
-        if(!sEducacion.existsById(id))
+        if(!sProyecto.existsById(id))
             return new ResponseEntity(new Mensaje("El id no existe"), HttpStatus.BAD_REQUEST);
-        //Compara nombre de experiencias
-        if(sEducacion.existsByNombreE(dtoedu.getNombreE()) && sEducacion.getByNombreE(dtoedu.getNombreE()).get().getId() != id)
-            return new ResponseEntity(new Mensaje("Esa educación ya existe"), HttpStatus.BAD_REQUEST);
+        //Compara nombre de proyectos
+        if(sProyecto.existsByNombre(dtoproyecto.getNombre()) && sProyecto.getByNombre(dtoproyecto.getNombre()).get().getId() != id)
+            return new ResponseEntity(new Mensaje("Ese proyecto ya existe"), HttpStatus.BAD_REQUEST);
         //Nombre oblogatorio, no puede estar en blanco
-        if(StringUtils.isBlank(dtoedu.getNombreE()))
+        if(StringUtils.isBlank(dtoproyecto.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         
-        Educacion educacion = sEducacion.getOne(id).get();
-        educacion.setNombreE(dtoedu.getNombreE());
-        educacion.setDescripcionE(dtoedu.getDescripcionE());
+        Proyecto proyecto = sProyecto.getOne(id).get();
+        proyecto.setNombre(dtoproyecto.getNombre());
+        proyecto.setDescripcion(dtoproyecto.getDescripcion());
         
-        sEducacion.save(educacion);
-        return new ResponseEntity(new Mensaje("Educación actualizada"), HttpStatus.OK);
+        sProyecto.save(proyecto);
+        return new ResponseEntity(new Mensaje("Proyecto actualizado"), HttpStatus.OK);
     }
 }
