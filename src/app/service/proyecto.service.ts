@@ -7,7 +7,7 @@ import { Proyecto } from '../model/proyecto';
   providedIn: 'root'
 })
 export class ProyectoService {
-  URL = 'https://backendfcorso.herokuapp.com/proyecto/'
+  URL = 'https://backendargprog-production.up.railway.app/proyecto/'
 
   constructor(private httpClient: HttpClient) { }
 
